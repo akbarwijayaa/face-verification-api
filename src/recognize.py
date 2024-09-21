@@ -6,17 +6,17 @@ import numpy as np
 import face_recognition
 
 from configparser import ConfigParser
-from os.path import dirname, join, abspath
+from os.path import dirname, join, abspath, realpath
 
 class recognizer:
     def __init__(self):
-        self.base_path = dirname(abspath(__file__))
-        self.data_path = join(self.base_path, 'data')
+        self.base_path = dirname(dirname(abspath(__file__)))
+        self.src_path = join(self.base_path, 'src')
         self.models_path = join(self.base_path, 'models')
-        self.weight_path = join(self.models_path, 'data.json')
+        self.weight_path = join(self.models_path, 'face_embeddings.json')
         
         self.config = ConfigParser()
-        self.config.read(join(self.data_path,'config.ini'))
+        self.config.read(join(self.src_path,'config.ini'))
 
         self.face_encode, self.list_face_encode = self.load_model()
 

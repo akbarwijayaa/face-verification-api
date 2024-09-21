@@ -18,11 +18,11 @@ class Training:
     def __init__(self):
         self.base_path = os.path.dirname(os.path.realpath('__file__'))
         self.models_path = join(self.base_path, 'models')
-        self.data_path = join(self.base_path, 'data')
-        self.weight_path = join(self.models_path, 'data.json')
+        self.src_path = join(self.base_path, 'src')
+        self.weight_path = join(self.models_path, 'face_embeddings.json')
         
         self.config = ConfigParser()
-        self.config.read(join(self.data_path,'config.ini'))
+        self.config.read(join(self.src_path,'config.ini'))
         self.url_server = self.config['train']['url_server']
             
     def find_class_name(self, image, img_name):
@@ -36,7 +36,7 @@ class Training:
         if res[0] not in no_ind:
             imgs = Image.fromarray(image)
             imgs = ImageOps.exif_transpose(imgs)
-            imgs.save(f'{self.url_server}/{img_name.upper()}.JPG', 'JPEG')
+            # imgs.save(f'{self.url_server}/{img_name.upper()}.JPG', 'JPEG')
             images.append(image)
             no_induk.append(res[0])
             class_name.append(os.path.splitext(img_name)[0].upper())

@@ -13,11 +13,11 @@ class updateData:
     def __init__(self):
         self.base_path = os.path.dirname(os.path.realpath('__file__'))
         self.models_path = join(self.base_path, 'models')
-        self.weight_path = join(self.models_path, 'data.json')
-        self.data_path = join(self.base_path, 'data')
+        self.weight_path = join(self.models_path, 'face_embeddings.json')
+        self.src_path = join(self.base_path, 'src')
         
         self.config = ConfigParser()
-        self.config.read(join(self.data_path,'config.ini'))
+        self.config.read(join(self.src_path,'config.ini'))
         self.url_server = self.config['train']['url_server']
 
     def name(self, no_ind, new_name):

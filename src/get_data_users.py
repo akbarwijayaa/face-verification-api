@@ -10,11 +10,11 @@ class DataUser:
     def __init__(self):        
         base_path = os.path.dirname(os.path.realpath('__file__'))
         models_path = join(base_path, 'models')
-        self.weight_path = join(models_path, 'data.json')
-        self.data_path = join(base_path, 'data')
+        self.weight_path = join(models_path, 'face_embeddings.json')
+        self.src_path = join(base_path, 'src')
         
         self.config = ConfigParser()
-        self.config.read(join(self.data_path,'config.ini'))
+        self.config.read(join(self.src_path,'config.ini'))
         self.url_img = self.config['api']['url_img']
     
     def get_data(self):

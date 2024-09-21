@@ -15,25 +15,25 @@ import pandas as pd
 
 from datetime import datetime
 from flask import Flask, request
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine    
 from configparser import ConfigParser
 from flask_session import Session
 from os.path import dirname, join, abspath
 from werkzeug.exceptions import HTTPException
 
-from dashboardNeeds.main import updateApiStatus, appendData
+from src.to_dashboard.main import updateApiStatus, appendData
 
 
-import recognize
-from train_piece import Training
-from get_data_users import DataUser
-from update_data import updateData
+import src.recognize as recognize
+from src.train_piece import Training
+from src.get_data_users import DataUser
+from src.update_data import updateData
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
 
 base_path = dirname(abspath(__file__))
-data_path = join(base_path, 'data')
+data_path = join(base_path, 'src')
 config = ConfigParser()
 config.read(join(data_path,'config.ini'))
 
