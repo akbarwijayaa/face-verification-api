@@ -19,7 +19,11 @@ $ pip install -r requirements.txt
 We try with messi and ronaldo photo. Both photos will be extracted and stored into json file. <br>
 <img src="docs/messi.jpg" alt="isolated" width="200"/>
 <img src="docs/ronaldo.jpg" alt="isolated" width="131.2"/>
-
+<br>
+source: <br>
+1. https://x.com/WeAreMessi/status/1074296719289016321
+<br>
+2. https://se.pinterest.com/pin/842595411505650734/
 <br>
 
 # Face Verification
