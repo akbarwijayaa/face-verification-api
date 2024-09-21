@@ -24,10 +24,10 @@ from werkzeug.exceptions import HTTPException
 from src.to_dashboard.main import updateApiStatus, appendData
 
 
-import src.recognize as recognize
-from src.train_piece import Training
-from src.get_data_users import DataUser
-from src.update_data import updateData
+import src.recognizer as recognize
+from src.register import Training
+from src.getter import DataUser
+from src.updater import updateData
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
